@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Computadoras{% endblock %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Lista de Computadoras</h1>
+<a href="/computadoras/nuevo/" class="bg-blue-600 text-white px-4 py-2 rounded">Agregar</a>
+<table class="w-full mt-4 border-collapse">
+  <tr class="bg-gray-200">
+    <th class="border p-2">Nombre</th>
+    <th class="border p-2">Procesador</th>
+    <th class="border p-2">RAM</th>
+    <th class="border p-2">Precio</th>
+    <th class="border p-2">Proveedor</th>
+    <th class="border p-2">Imagen</th>
+    <th class="border p-2">Acciones</th>
+  </tr>
+  {% for c in computadoras %}
+  <tr>
+    <td class="border p-2">{{ c.nombre }}</td>
+    <td class="border p-2">{{ c.procesador }}</td>
+    <td class="border p-2">{{ c.ram }}</td>
+    <td class="border p-2">S/ {{ c.precio }}</td>
+    <td class="border p-2">{{ c.proveedor.nombre }}</td>
+    <td class="border p-2">
+      {% if c.imagen %}
+        <img src="{{ c.imagen.url }}" class="h-16 rounded">
+      {% else %}
+        Sin imagen
+      {% endif %}
+    </td>
+    <td class="border p-2">
+      <a href="/computadoras/editar/{{ c.id }}/" class="text-green-600">Editar</a> |
+      <a href="/computadoras/eliminar/{{ c.id }}/" class="text-red-600">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

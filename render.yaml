@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: inventario-pc
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn inventario_pc.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: inventario_pc.settings
+      - key: PYTHON_VERSION
+        value: 3.13.5

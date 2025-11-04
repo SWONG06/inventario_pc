@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="text-center py-12 space-y-8">
+  <h1 class="text-4xl font-bold text-gray-800">Inventario de Computadoras</h1>
+  <p class="text-gray-600 text-lg">Sistema de gestión con Django + Tailwind</p>
+
+  <div class="flex justify-center gap-6 mt-10">
+    <a href="/computadoras/"
+       class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+      💻 Ver Computadoras
+    </a>
+    <a href="/proveedores/"
+       class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
+      🏢 Ver Proveedores
+    </a>
+  </div>
+</div>
+{% endblock %}

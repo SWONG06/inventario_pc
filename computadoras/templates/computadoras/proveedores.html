@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Proveedores{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Lista de Proveedores</h1>
+<a href="/proveedores/nuevo/" class="bg-blue-600 text-white px-4 py-2 rounded">Agregar Proveedor</a>
+
+<table class="w-full mt-4 border-collapse">
+  <tr class="bg-gray-200">
+    <th class="border p-2">Nombre</th>
+    <th class="border p-2">Contacto</th>
+    <th class="border p-2">Acciones</th>
+  </tr>
+  {% for p in proveedores %}
+  <tr>
+    <td class="border p-2">{{ p.nombre }}</td>
+    <td class="border p-2">{{ p.contacto }}</td>
+    <td class="border p-2">
+      <a href="/proveedores/eliminar/{{ p.id }}/" class="text-red-600 hover:underline">Eliminar</a>
+    </td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="3" class="border p-4 text-center text-gray-500">No hay proveedores registrados.</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
